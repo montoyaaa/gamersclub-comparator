@@ -7,23 +7,23 @@ const PlayerCard = ({ player }: { player?: User }) => {
       <S.Column>
         <S.PlayerBackground src={player?.background} />
 
-        <S.Wrapper>
+        <S.ShadowEffect>
           <S.Section>
-            <S.Player>
+            <S.PlayerSection>
               <S.PlayerAvatar src={player?.avatar} />
               <S.Column>
                 <S.Row>{player?.name}</S.Row>
                 <S.Label>ID: {player?.id}</S.Label>
               </S.Column>
               <S.SkillLevel>{player?.skill_level}</S.SkillLevel>
-            </S.Player>
+            </S.PlayerSection>
           </S.Section>
 
           <S.Section divider={["top"]}>
             <S.Row>{player?.name}</S.Row>
             <S.Row>{player?.name}</S.Row>
           </S.Section>
-        </S.Wrapper>
+        </S.ShadowEffect>
       </S.Column>
     </S.Card>
   );
