@@ -9,8 +9,11 @@ import { useFetchUsers } from "../../hooks/useUsers";
 import * as S from "./styles";
 
 const UsersComparator = () => {
-  const { isLoading, error, ...usersFetched } = useFetchUsers();
   const toastId = useRef<Id | null>(null);
+  const { isLoading, error, ...usersFetched } = useFetchUsers();
+
+  if (usersFetched.data) toast.dismiss();
+
   if (isLoading) {
     toast.dismiss();
     toastId.current = toast.info("Buscando", {
