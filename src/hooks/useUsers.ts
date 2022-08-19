@@ -3,7 +3,7 @@ import api from "../services/api";
 import { User } from "../utils/types/user.type";
 
 const fetchUsers = async () => {
-  const { data } = await api.get("/users");
+  const { data } = await api.get("/users1");
   return data as User[];
 };
 
