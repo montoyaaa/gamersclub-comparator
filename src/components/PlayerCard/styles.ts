@@ -84,6 +84,7 @@ export const Label = styled.span`
 export const PlayerBackground = styled.img`
   /* TODO: Validar imagem menor de capa do card */
   height: 100px;
+  max-width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 `;
