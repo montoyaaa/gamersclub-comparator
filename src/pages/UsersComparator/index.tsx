@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Id, toast } from "react-toastify";
 import Input from "../../components/Input";
 import ListItem from "../../components/ListItem";
+import PlayerCard from "../../components/PlayerCard";
 import { useFetchUsers } from "../../hooks/useUsers";
 
 import * as S from "./styles";
@@ -57,6 +58,14 @@ const UsersComparator = () => {
             }
             return <ListItem key={user.id} text={user.name} />;
           })}
+        </S.Wrapper>
+      </S.Section>
+
+      <S.Section divider={["top"]}>
+        <S.Wrapper>
+          {usersFetched.data?.map((user, i) => (
+            <PlayerCard key={user.id} player={user} />
+          ))}
         </S.Wrapper>
       </S.Section>
     </S.Container>
