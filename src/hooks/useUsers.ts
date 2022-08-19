@@ -8,7 +8,10 @@ const fetchUsers = async () => {
 };
 
 export const useFetchUsers = () => {
-  return useQuery("users", fetchUsers, { refetchOnWindowFocus: false });
+  return useQuery("users", fetchUsers, {
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
 };
 
 // TODO: Gamersclub comparator - Comparar os perfis
