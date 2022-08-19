@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./config/theme";
-import UsersList from "./views/UsersComparator";
+import UsersList from "./pages/UsersComparator";
 
 import GlobalStyle from "./config/globalStyles";
 
