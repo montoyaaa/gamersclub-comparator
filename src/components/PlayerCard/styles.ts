@@ -19,7 +19,7 @@ export const Column = styled.div`
 export const Row = styled.div`
   display: flex;
 `;
-export const Wrapper = styled.div`
+export const ShadowEffect = styled.div`
   position: relative;
   top: -8px;
   border-top-left-radius: 10px;
@@ -40,11 +40,10 @@ export const Section = styled.div<SectionProps>`
   padding: 16px;
 `;
 
-export const Player = styled.div`
+export const PlayerSection = styled.div`
   display: flex;
   gap: 8px;
   font-size: 18px;
-  /* font-family: Poppins; */
   align-items: center;
 `;
 
@@ -58,8 +57,6 @@ export const SkillLevel = styled.div`
   background-color: ${(props) => props.theme.palette.danger.main};
   text-shadow: 1px 1px 1px rgb(0 0 0 / 40%);
   animation: levelShadowAnimation 2s infinite;
-
-  /* TODO: Validar imagem menor de capa do card */
 
   /* font-family: Poppins; */
   /* font-size: 16px; */
@@ -85,7 +82,8 @@ export const Label = styled.span`
 `;
 
 export const PlayerBackground = styled.img`
-  width: 100%;
+  /* TODO: Validar imagem menor de capa do card */
+  height: 100px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 `;
