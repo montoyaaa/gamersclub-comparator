@@ -1,7 +1,14 @@
-import styled from "styled-components";
+import styled, { CSSObject } from "styled-components";
 
 type SectionProps = {
   divider?: String[];
+  center?: boolean;
+  full?: boolean;
+};
+
+type RowProps = {
+  gap?: number;
+  custom?: CSSObject;
 };
 
 export const Card = styled.div`
@@ -16,8 +23,18 @@ export const Column = styled.div`
   display: flex;
   flex-direction: Column;
 `;
-export const Row = styled.div`
+export const Row = styled.div<RowProps>`
   display: flex;
+  gap: ${(props) => props.gap + "px" ?? 0};
+  ${(props) => props.custom};
+`;
+export const Wrapper = styled.div<RowProps>`
+  display: flex;
+  gap: ${(props) => props.gap + "px" ?? "0"};
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 export const ShadowEffect = styled.div`
   position: relative;
@@ -28,6 +45,17 @@ export const ShadowEffect = styled.div`
 `;
 
 export const Section = styled.div<SectionProps>`
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+
+  height: ${(props) => (props.full ? "100%" : "inherit")};
+
+  ${(props) =>
+    props.center
+      ? "justify-content: center; align-items: center; height: 100%;"
+      : ""}
+
   border-top: ${(props) =>
     props.divider?.includes("top") && "1px solid hsla(0, 0%, 100%, 0.08)"};
   border-bottom: ${(props) =>
@@ -36,8 +64,6 @@ export const Section = styled.div<SectionProps>`
     props.divider?.includes("left") && "1px solid hsla(0, 0%, 100%, 0.08)"};
   border-right: ${(props) =>
     props.divider?.includes("right") && "1px solid hsla(0, 0%, 100%, 0.08)"};
-
-  padding: 16px;
 `;
 
 export const PlayerSection = styled.div`
@@ -76,9 +102,11 @@ export const SkillLevel = styled.div`
 
 export const Label = styled.span`
   font-family: Poppins;
-  font-size: 10px;
+  font-size: 12px;
   color: #7e7a86;
   align-self: flex-start;
+  text-transform: uppercase;
+  white-space: pre-wrap;
 `;
 
 export const PlayerBackground = styled.img`
@@ -94,4 +122,13 @@ export const PlayerAvatar = styled.img`
   height: 47px;
   border-radius: 50%;
   border: 3px solid ${(props) => props.theme.palette.success.main};
+`;
+
+export const Title = styled.span`
+  letter-spacing: 1px;
+  line-height: 20px;
+  font-size: 18px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  /* botar query params na coluna q alinha as sections de stats */
 `;
