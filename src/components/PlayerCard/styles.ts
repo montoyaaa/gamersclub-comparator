@@ -11,6 +11,10 @@ type RowProps = {
   custom?: CSSObject;
 };
 
+type PlayerBackgroundProps = {
+  image: String;
+};
+
 export const Card = styled.div`
   position: relative;
   flex: 1;
@@ -36,7 +40,7 @@ export const Wrapper = styled.div<RowProps>`
     flex-direction: column;
   }
 `;
-export const ShadowEffect = styled.div`
+export const BackgroundShadow = styled.div`
   position: relative;
   top: -8px;
   border-top-left-radius: 10px;
@@ -109,12 +113,13 @@ export const Label = styled.span`
   white-space: pre-wrap;
 `;
 
-export const PlayerBackground = styled.img`
-  /* TODO: Validar imagem menor de capa do card */
-  height: 100px;
-  max-width: 100%;
+export const PlayerBackground = styled.div<PlayerBackgroundProps>`
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  height: 105px;
+  background-position: center;
+  background-size: cover;
+  background-image: ${(props) => `url(${props.image})`};
 `;
 
 export const PlayerAvatar = styled.img`
@@ -130,5 +135,4 @@ export const Title = styled.span`
   font-size: 18px;
   text-transform: uppercase;
   white-space: nowrap;
-  /* botar query params na coluna q alinha as sections de stats */
 `;

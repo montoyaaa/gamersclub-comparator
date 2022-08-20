@@ -5,9 +5,9 @@ const PlayerCard = ({ player }: { player?: User }) => {
   return (
     <S.Card>
       <S.Column>
-        <S.PlayerBackground src={player?.background} />
+        <S.PlayerBackground image={player?.background!} />
 
-        <S.ShadowEffect>
+        <S.BackgroundShadow>
           <S.Section>
             <S.PlayerSection>
               <S.PlayerAvatar src={player?.avatar} />
@@ -64,7 +64,7 @@ const PlayerCard = ({ player }: { player?: User }) => {
               </S.Column>
             </S.Wrapper>
           </S.Section>
-        </S.ShadowEffect>
+        </S.BackgroundShadow>
       </S.Column>
     </S.Card>
   );
