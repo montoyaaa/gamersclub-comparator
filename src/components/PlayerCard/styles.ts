@@ -134,5 +134,6 @@ export const Title = styled.span`
   line-height: 20px;
   font-size: 18px;
   text-transform: uppercase;
-  white-space: nowrap;
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
 `;
