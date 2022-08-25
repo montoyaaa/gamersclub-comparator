@@ -4,15 +4,16 @@ type SectionProps = {
   divider?: String[];
 };
 
+// Envolver aplicação no container e não somente o UsersComparator
 export const Container = styled.div`
   flex-direction: column;
-  margin: 10%;
+  margin: 10% 30%;
   background-color: ${(props) => props.theme.palette.card.main};
   border: 1px solid hsla(0, 0%, 100%, 0.08);
   color: ${(props) => props.theme.palette.card.contrastText};
 
-  @media (max-width: 600px) {
-    margin: 5%;
+  @media (max-width: 1900px) {
+    margin: 15%;
   }
 `;
 
