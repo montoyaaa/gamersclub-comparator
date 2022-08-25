@@ -22,7 +22,10 @@ const PlayerCard = ({ player }: { player?: User }) => {
           <S.Section divider={["top"]}>
             <S.Wrapper gap={16}>
               <S.Column>
-                <S.Section divider={["top", "left", "right", "bottom"]}>
+                <S.Section
+                  background="solid"
+                  divider={["top", "left", "right", "bottom"]}
+                >
                   <S.Title>Estatísticas do mês</S.Title>
                   <S.Row custom={{ justifyContent: "space-between" }}>
                     <S.Label>Kdr: </S.Label>
@@ -47,7 +50,11 @@ const PlayerCard = ({ player }: { player?: User }) => {
                 </S.Section>
               </S.Column>
               <S.Column>
-                <S.Section full divider={["top", "left", "right", "bottom"]}>
+                <S.Section
+                  background="solid"
+                  full
+                  divider={["top", "left", "right", "bottom"]}
+                >
                   <S.Title>Última partida</S.Title>
                   <S.Section center>
                     <S.Row>

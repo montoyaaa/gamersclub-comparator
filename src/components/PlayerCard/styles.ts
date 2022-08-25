@@ -4,6 +4,7 @@ type SectionProps = {
   divider?: String[];
   center?: boolean;
   full?: boolean;
+  background?: String;
 };
 
 type RowProps = {
@@ -20,7 +21,7 @@ export const Card = styled.div`
   flex: 1;
   display: flex;
   border: 1px solid hsla(0, 0%, 100%, 0.08);
-  border-radius: 10px;
+  border-radius: 5px;
 `;
 export const Column = styled.div`
   flex: 1;
@@ -43,8 +44,8 @@ export const Wrapper = styled.div<RowProps>`
 export const BackgroundShadow = styled.div`
   position: relative;
   top: -8px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   background: linear-gradient(0deg, rgb(33 35 53) 30%, rgba(121, 9, 9, 1) 200%);
 `;
 
@@ -56,9 +57,12 @@ export const Section = styled.div<SectionProps>`
   height: ${(props) => (props.full ? "100%" : "inherit")};
 
   ${(props) =>
+    props.background === "solid" ? `background-color: #282a3e;` : null}
+
+  ${(props) =>
     props.center
       ? "justify-content: center; align-items: center; height: 100%;"
-      : ""}
+      : null}
 
   border-top: ${(props) =>
     props.divider?.includes("top") && "1px solid hsla(0, 0%, 100%, 0.08)"};
@@ -114,8 +118,8 @@ export const Label = styled.span`
 `;
 
 export const PlayerBackground = styled.div<PlayerBackgroundProps>`
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   height: 105px;
   background-position: center;
   background-size: cover;
