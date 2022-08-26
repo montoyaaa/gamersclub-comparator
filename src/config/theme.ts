@@ -14,7 +14,7 @@ export const defaultTheme: DefaultTheme = {
       contrastText: "#fdfefe",
     },
     danger: {
-      main: "#880e1b",
+      main: "#ff0000",
       contrastText: "#fdfefe",
     },
     info: {
