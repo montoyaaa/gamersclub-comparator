@@ -61,9 +61,18 @@ const UsersComparator = () => {
 
       <S.Section divider={["top"]}>
         <S.Wrapper>
-          {usersFetched.data?.map((user, i) => (
-            <PlayerCard key={user.id} player={user} />
-          ))}
+          {usersFetched.data?.map((user, i) => {
+            if (i + 1 !== usersFetched.data.length) {
+              return (
+                <>
+                  <PlayerCard key={user.id} player={user} />
+                  <span>X</span>
+                </>
+              );
+            }
+
+            return <PlayerCard key={user.id} player={user} />;
+          })}
         </S.Wrapper>
       </S.Section>
     </S.Container>
