@@ -11,5 +11,6 @@ export default createGlobalStyle`
 
         background-color: #161626;
         color: #fdfefe;
+        font-size: 1.2em;
     }
 `;

@@ -69,7 +69,6 @@ export const Section = styled.div<SectionProps>`
 export const PlayerSection = styled.div`
   display: flex;
   gap: 8px;
-  font-size: 18px;
   align-items: center;
 `;
 
@@ -86,20 +85,20 @@ export const SkillLevel = styled.div`
 
   @keyframes levelShadowAnimation {
     0% {
-      box-shadow: 0px 0px 5px 0px #ff0000;
+      box-shadow: 0px 0px 5px 0px ${({ theme }) => theme.palette.danger.main};
     }
     50% {
-      box-shadow: 0px 0px 5px 1px #ff0000;
+      box-shadow: 0px 0px 5px 1px ${({ theme }) => theme.palette.danger.main};
     }
     100% {
-      box-shadow: 0px 0px 5px 0px #ff0000;
+      box-shadow: 0px 0px 5px 0px ${({ theme }) => theme.palette.danger.main};
     }
   }
 `;
 
 export const Label = styled.span`
   font-family: Poppins;
-  font-size: 12px;
+  font-size: 14px;
   color: #7e7a86;
   align-self: flex-start;
   text-transform: uppercase;
@@ -138,4 +137,10 @@ export const Medal = styled.div`
     rgb(33 35 53) 65%,
     rgba(121, 9, 9, 1) 200%
   );
+`;
+export const MedalRarity = styled.span`
+  margin: 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: ${({ theme }) => theme.palette.danger.main};
 `;
