@@ -10,5 +10,6 @@ export default createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
 
         background-color: #161626;
+        color: #fdfefe;
     }
 `;
