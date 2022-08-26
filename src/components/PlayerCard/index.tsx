@@ -26,28 +26,16 @@ const PlayerCard = ({ player }: { player?: User }) => {
                   style={{ minWidth: 150 }}
                   background="solid"
                   divider={["top", "left", "right", "bottom"]}
+                  center
                 >
-                  <S.Title>Estatísticas do mês</S.Title>
-                  <S.Row style={{ justifyContent: "space-between" }}>
-                    <S.Label>Kdr: </S.Label>
-                    {player?.stats.kdr}
-                  </S.Row>
-                  <S.Row style={{ justifyContent: "space-between" }}>
-                    <S.Label>Matou: </S.Label>
-                    {player?.stats.kill}
-                  </S.Row>
-                  <S.Row style={{ justifyContent: "space-between" }}>
-                    <S.Label>Morreu: </S.Label>
-                    {player?.stats.death}
-                  </S.Row>
-                  <S.Row style={{ justifyContent: "space-between" }}>
-                    <S.Label>Vitória: </S.Label>
-                    {player?.stats.won}
-                  </S.Row>
-                  <S.Row style={{ justifyContent: "space-between" }}>
-                    <S.Label>Derrota: </S.Label>
-                    {player?.stats.lost}
-                  </S.Row>
+                  {player?.medal.common}%
+                  <S.Medal>
+                    <img
+                      title={player?.medal.title}
+                      src={player?.medal.url}
+                      alt={player?.medal.title}
+                    />
+                  </S.Medal>
                 </S.Section>
               </S.Column>
             </S.Row>

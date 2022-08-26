@@ -12,7 +12,7 @@ export const Container = styled.div`
   color: ${(props) => props.theme.palette.card.contrastText};
 
   @media (min-width: 1800px) {
-    margin: 10% 30%;
+    margin: 10% 20%;
   }
   @media (max-width: 600px) {
     margin: 0;

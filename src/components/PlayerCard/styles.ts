@@ -128,3 +128,14 @@ export const Title = styled.span`
   font-size: 18px;
   text-transform: uppercase;
 `;
+export const Medal = styled.div`
+  background-color: ${(props) => props.theme.palette.secondary.main};
+  padding: 16px;
+  border-radius: 50%;
+  /* Fazer o background de acordo com a raridade */
+  background: linear-gradient(
+    180deg,
+    rgb(33 35 53) 65%,
+    rgba(121, 9, 9, 1) 200%
+  );
+`;
