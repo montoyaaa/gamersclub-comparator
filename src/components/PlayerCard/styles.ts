@@ -1,4 +1,4 @@
-import styled, { CSSObject } from "styled-components";
+import styled from "styled-components";
 
 type SectionProps = {
   divider?: String[];
@@ -9,7 +9,6 @@ type SectionProps = {
 
 type RowProps = {
   gap?: number;
-  custom?: CSSObject;
 };
 
 type PlayerBackgroundProps = {
@@ -31,16 +30,12 @@ export const Column = styled.div`
 export const Row = styled.div<RowProps>`
   display: flex;
   gap: ${(props) => props.gap + "px" ?? 0};
-  ${(props) => props.custom};
-`;
-export const Wrapper = styled.div<RowProps>`
-  display: flex;
-  gap: ${(props) => props.gap + "px" ?? "0"};
 
   @media (max-width: 600px) {
     flex-direction: column;
   }
 `;
+
 export const BackgroundShadow = styled.div`
   position: relative;
   top: -8px;
