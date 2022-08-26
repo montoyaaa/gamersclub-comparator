@@ -23,6 +23,7 @@ const PlayerCard = ({ player }: { player?: User }) => {
             <S.Row>
               <S.Column>
                 <S.Section
+                  style={{ minWidth: 150 }}
                   background="solid"
                   divider={["top", "left", "right", "bottom"]}
                 >
@@ -54,6 +55,7 @@ const PlayerCard = ({ player }: { player?: User }) => {
             <S.Row gap={16}>
               <S.Column>
                 <S.Section
+                  style={{ minWidth: 150 }}
                   background="solid"
                   divider={["top", "left", "right", "bottom"]}
                 >
@@ -83,6 +85,7 @@ const PlayerCard = ({ player }: { player?: User }) => {
 
               <S.Column>
                 <S.Section
+                  style={{ minWidth: 150 }}
                   full
                   background="solid"
                   divider={["top", "left", "right", "bottom"]}

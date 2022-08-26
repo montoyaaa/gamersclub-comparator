@@ -29,11 +29,8 @@ export const Column = styled.div`
 `;
 export const Row = styled.div<RowProps>`
   display: flex;
+  flex-wrap: wrap;
   gap: ${(props) => props.gap + "px" ?? 0};
-
-  @media (max-width: 600px) {
-    flex-direction: column;
-  }
 `;
 
 export const BackgroundShadow = styled.div`
@@ -87,9 +84,6 @@ export const SkillLevel = styled.div`
   text-shadow: 1px 1px 1px rgb(0 0 0 / 40%);
   animation: levelShadowAnimation 2s infinite;
 
-  /* font-family: Poppins; */
-  /* font-size: 16px; */
-
   @keyframes levelShadowAnimation {
     0% {
       box-shadow: 0px 0px 5px 0px #ff0000;
@@ -133,6 +127,4 @@ export const Title = styled.span`
   line-height: 20px;
   font-size: 18px;
   text-transform: uppercase;
-  /* text-overflow: ellipsis; */
-  /* white-space: nowrap; */
 `;
