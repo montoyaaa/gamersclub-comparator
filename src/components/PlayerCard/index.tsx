@@ -28,7 +28,6 @@ const PlayerCard = ({ player }: { player?: User }) => {
                   divider={["top", "left", "right", "bottom"]}
                   center
                 >
-                  {player?.medal.common}%
                   <S.Medal>
                     <img
                       title={player?.medal.title}
@@ -36,6 +35,15 @@ const PlayerCard = ({ player }: { player?: User }) => {
                       alt={player?.medal.title}
                     />
                   </S.Medal>
+                  <S.Row>{player?.medal.title}</S.Row>
+                  <S.Row
+                    style={{
+                      flexWrap: "nowrap",
+                    }}
+                  >
+                    <S.MedalRarity>{player?.medal.type}</S.MedalRarity>
+                    Apenas {player?.medal.common}% conquistaram essa medalha
+                  </S.Row>
                 </S.Section>
               </S.Column>
             </S.Row>
