@@ -1,8 +1,6 @@
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { AxiosError } from "axios";
 import { useRef } from "react";
 import { Id, toast } from "react-toastify";
-import Input from "../../components/Input";
 import ListItem from "../../components/ListItem";
 import PlayerCard from "../../components/PlayerCard";
 import { useFetchUsers } from "../../hooks/useUsers";
@@ -36,14 +34,14 @@ const UsersComparator = () => {
 
   return (
     <S.Container>
-      <S.Section>
+      {/* <S.Section>
         <Input
           label="Buscar"
           suffixIcon={faSearch}
           placeholder="Procure pelo GC ID"
           type="text"
         />
-      </S.Section>
+      </S.Section> */}
 
       <S.Section divider={["top"]}>
         <S.Wrapper>
