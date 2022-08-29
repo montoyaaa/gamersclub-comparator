@@ -10,7 +10,13 @@ const PlayerCard = ({ player }: { player?: User }) => {
         <S.BackgroundShadow>
           <S.Section>
             <S.PlayerSection>
-              <S.PlayerAvatar src={player?.avatar} />
+              <S.PlayerAvatar frame={!!player?.frame}>
+                {!!player?.frame && (
+                  <img className="frame" src={player?.frame} alt="#" />
+                )}
+
+                <img className="avatar" src={player?.avatar} alt="#" />
+              </S.PlayerAvatar>
               <S.Column>
                 <S.Row>{player?.name}</S.Row>
                 <S.Label>ID: {player?.id}</S.Label>

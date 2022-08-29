@@ -7,6 +7,10 @@ type SectionProps = {
   background?: String;
 };
 
+type AvatarFrameProps = {
+  frame?: String;
+};
+
 type RowProps = {
   gap?: number;
 };
@@ -114,11 +118,24 @@ export const PlayerBackground = styled.div<PlayerBackgroundProps>`
   background-image: ${(props) => `url(${props.image})`};
 `;
 
-export const PlayerAvatar = styled.img`
-  width: 47px;
-  height: 47px;
-  border-radius: 50%;
-  border: 3px solid ${(props) => props.theme.palette.success.main};
+export const PlayerAvatar = styled.div<{ frame?: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${(props) => props.frame && `padding: 2px;`}
+
+  img.frame {
+    width: 47px;
+    height: 47px;
+    position: absolute;
+  }
+  img.avatar {
+    ${(props) =>
+      !props.frame && `border: 2px solid ${props.theme.palette.success.main};`}
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+  }
 `;
 
 export const Title = styled.span`
@@ -143,4 +160,12 @@ export const MedalRarity = styled.span`
   text-transform: uppercase;
   letter-spacing: 2px;
   color: ${({ theme }) => theme.palette.danger.main};
+`;
+export const AvatarFrame = styled.div<AvatarFrameProps>`
+  background-image: ${(props) => `url(${props.frame ?? ""})`};
+  background-position: center;
+  background-size: cover;
+  /* padding: 5px; */
+  /* z-index: 10; */
+  position: relative;
 `;
