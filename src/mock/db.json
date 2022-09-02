@@ -49,6 +49,31 @@
         "kill": 637,
         "death": 580
       }
+    },
+    {
+      "id": 1,
+      "name": "Fallen",
+      "skill_level": 20,
+      "background": "https://static.gamersclub.com.br/players/cover/662888/662888.jpg",
+      "avatar": "https://static.gamersclub.com.br/players/avatar/91264/91264_full.gif",
+      "frame": "https://assets.gamersclub.com.br/marketplace/avatar-frame-double-hang-loose",
+      "medal": {
+        "url": "https://gamersclub.com.br/images/medalhas/34.png",
+        "title": "Fui Campeão da Balada GC!",
+        "type": "legendary",
+        "common": 0.04
+      },
+      "stats": {
+        "won": 20,
+        "lost": 9,
+        "last_match": {
+          "date": "2022-08-17",
+          "result": "13x16"
+        },
+        "kdr": 1.1,
+        "kill": 637,
+        "death": 580
+      }
     }
   ]
 }
