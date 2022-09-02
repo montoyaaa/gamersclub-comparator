@@ -1,15 +1,29 @@
+import {
+  faAdd,
+  faDownload,
+  faTrashCan,
+  faX,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AxiosError } from "axios";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Id, toast } from "react-toastify";
+import { IconButton } from "../../components/IconButton/styles";
 import ListItem from "../../components/ListItem";
 import PlayerCard from "../../components/PlayerCard";
 import { useFetchUsers } from "../../hooks/useUsers";
+import { User } from "../../utils/types/user.type";
 
 import * as S from "./styles";
 
 const UsersComparator = () => {
   const toastId = useRef<Id | null>(null);
   const { isLoading, error, ...usersFetched } = useFetchUsers();
+  const [playersToCompare, setPlayersToCompare] = useState<User[]>([]);
+
+  useEffect(() => {
+    setPlayersToCompare(usersFetched.data ?? []);
+  }, [usersFetched.data]);
 
   if (usersFetched.data) toast.dismiss();
 
@@ -45,28 +59,66 @@ const UsersComparator = () => {
 
       <S.Section divider={["top"]}>
         <S.Wrapper>
-          {usersFetched.data?.map((user, i) => {
-            if (i + 1 !== usersFetched.data.length) {
+          {playersToCompare?.map((user, i) => {
+            if (i + 1 !== playersToCompare.length) {
               return (
                 <>
-                  <ListItem key={user.id} text={user.name} />
-                  <span>+</span>
+                  <ListItem
+                    key={i}
+                    text={user.name}
+                    actions={[
+                      <IconButton color="info">
+                        <FontAwesomeIcon icon={faDownload} />
+                      </IconButton>,
+                      <IconButton
+                        color="danger"
+                        onClick={() => {
+                          setPlayersToCompare(
+                            playersToCompare.filter((player) => player !== user)
+                          );
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faTrashCan} />
+                      </IconButton>,
+                    ]}
+                  />
+                  <FontAwesomeIcon icon={faAdd} />
                 </>
               );
             }
-            return <ListItem key={user.id} text={user.name} />;
+            return (
+              <ListItem
+                key={i}
+                text={user.name}
+                actions={[
+                  <IconButton color="info">
+                    <FontAwesomeIcon icon={faDownload} />
+                  </IconButton>,
+                  <IconButton
+                    color="danger"
+                    onClick={() => {
+                      setPlayersToCompare(
+                        playersToCompare.filter((player) => player !== user)
+                      );
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faTrashCan} />
+                  </IconButton>,
+                ]}
+              />
+            );
           })}
         </S.Wrapper>
       </S.Section>
 
       <S.Section divider={["top"]}>
         <S.Wrapper>
-          {usersFetched.data?.map((user, i) => {
-            if (i + 1 !== usersFetched.data.length) {
+          {playersToCompare?.map((user, i) => {
+            if (i + 1 !== playersToCompare.length) {
               return (
                 <>
                   <PlayerCard key={user.id} player={user} />
-                  <span>X</span>
+                  <FontAwesomeIcon icon={faX} />
                 </>
               );
             }
