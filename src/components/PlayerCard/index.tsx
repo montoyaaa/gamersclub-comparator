@@ -26,7 +26,10 @@ const PlayerCard = ({ player }: { player?: User }) => {
             </S.PlayerSection>
           </S.Section>
 
-          <S.Section divider={["top"]} style={{ gap: 16 }}>
+          <S.Section
+            // divider={["top"]}
+            style={{ gap: 16 }}
+          >
             <S.Row>
               <S.Column>
                 <S.Section
