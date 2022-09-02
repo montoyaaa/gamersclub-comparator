@@ -1,4 +1,5 @@
 import { User } from "../../utils/types/user.type";
+import { IconButton } from "../IconButton/styles";
 import * as S from "./styles";
 
 const PlayerCard = ({ player }: { player?: User }) => {
@@ -29,11 +30,22 @@ const PlayerCard = ({ player }: { player?: User }) => {
             <S.Row>
               <S.Column>
                 <S.Section
-                  style={{ minWidth: 150 }}
+                  style={{ minWidth: 150, position: "relative" }}
                   background="solid"
                   divider={["top", "left", "right", "bottom"]}
                   center
                 >
+                  <S.Row
+                    style={{
+                      alignSelf: "flex-end",
+                      position: "absolute",
+                      top: 16,
+                    }}
+                  >
+                    <IconButton>
+                      <ChangeIcon />
+                    </IconButton>
+                  </S.Row>
                   <S.Medal>
                     <img
                       title={player?.medal.title}
@@ -114,3 +126,26 @@ const PlayerCard = ({ player }: { player?: User }) => {
   );
 };
 export default PlayerCard;
+
+const ChangeIcon = () => (
+  <svg
+    width="22"
+    height="18"
+    viewBox="0 0 22 18"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M5.25217 18L0 12.7826L5.25217 7.56512V11.7679H5.65405H13.3848H14.3848V12.449V12.7679V13.449H13.3848H5.65405H5.25217V18Z"
+      fill="white"
+    ></path>
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M16.748 10.4349L22.0001 5.21746L16.748 0V4.20282H16.3462H8.61543H7.61543V4.88394V5.20282V5.88394H8.61543H16.3462H16.748V10.4349Z"
+      fill="white"
+    ></path>
+  </svg>
+);
