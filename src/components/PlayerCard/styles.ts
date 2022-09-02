@@ -38,10 +38,6 @@ export const Row = styled.div<RowProps>`
 `;
 
 export const BackgroundShadow = styled.div`
-  position: relative;
-  top: -8px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   background: linear-gradient(0deg, rgb(33 35 53) 30%, rgba(121, 9, 9, 1) 200%);
 `;
 
