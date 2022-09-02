@@ -125,15 +125,15 @@ export const PlayerAvatar = styled.div<{ frame?: boolean }>`
   ${(props) => props.frame && `padding: 2px;`}
 
   img.frame {
-    width: 47px;
-    height: 47px;
+    width: 60px;
+    height: 60px;
     position: absolute;
   }
   img.avatar {
     ${(props) =>
       !props.frame && `border: 2px solid ${props.theme.palette.success.main};`}
-    width: 42px;
-    height: 42px;
+    width: 47px;
+    height: 47px;
     border-radius: 50%;
   }
 `;
