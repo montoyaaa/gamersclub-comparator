@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex: 1;
   color: ${(props) => props.theme.palette.primary.contrastText};
   border: 1px solid hsla(0, 0%, 100%, 0.08);
@@ -13,10 +16,9 @@ export const Wrapper = styled.div`
   text-overflow: ellipsis;
   letter-spacing: 0.5px;
   background-color: ${(props) => props.theme.palette.primary.main};
-  transition: opacity 0.3s ease-in-out;
-  cursor: pointer;
+`;
 
-  &&:hover {
-    opacity: 0.6;
-  }
+export const Actions = styled.div`
+  display: flex;
+  gap: 5px;
 `;
