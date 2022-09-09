@@ -18,6 +18,7 @@ type RowProps = {
 type PlayerBackgroundProps = {
   image: String;
 };
+// TODO: Botar input para buscar jogador no list item e mostrar um card com o mesmo tamanho predefinido azul e vermelho
 
 export const Card = styled.div`
   position: relative;
