@@ -44,3 +44,12 @@ export const Section = styled.div<SectionProps>`
 
   padding: 16px;
 `;
+
+export const Highlight = styled.span`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+`;
