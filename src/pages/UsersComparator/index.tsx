@@ -1,6 +1,6 @@
 import {
-  faAdd,
   faDownload,
+  faPlus,
   faTrashCan,
   faX,
 } from "@fortawesome/free-solid-svg-icons";
@@ -20,10 +20,15 @@ const UsersComparator = () => {
   const toastId = useRef<Id | null>(null);
   const { isLoading, error, ...usersFetched } = useFetchUsers();
   const [playersToCompare, setPlayersToCompare] = useState<User[]>([]);
+  const [winner, setWinner] = useState<User>();
 
   useEffect(() => {
     setPlayersToCompare(usersFetched.data ?? []);
   }, [usersFetched.data]);
+
+  useEffect(() => {
+    setWinner(playersToCompare[0]);
+  }, [playersToCompare]);
 
   if (usersFetched.data) toast.dismiss();
 
@@ -46,6 +51,38 @@ const UsersComparator = () => {
     }
   }
 
+  function renderPlayersNameInput(i: number): JSX.Element {
+    return (
+      <ListItem
+        key={i}
+        text={playersToCompare[i]?.name}
+        actions={[
+          <IconButton color="info">
+            <FontAwesomeIcon icon={faDownload} />
+          </IconButton>,
+          <IconButton
+            color="danger"
+            onClick={() => {
+              setPlayersToCompare(
+                playersToCompare.filter(
+                  (player) => player !== playersToCompare[i]
+                )
+              );
+            }}
+          >
+            <FontAwesomeIcon icon={faTrashCan} />
+          </IconButton>,
+        ]}
+      />
+    );
+  }
+
+  function renderPlayersCard(i: number): JSX.Element {
+    return (
+      <PlayerCard key={playersToCompare[i]?.id} player={playersToCompare[i]} />
+    );
+  }
+
   return (
     <S.Container>
       {/* <S.Section>
@@ -59,73 +96,22 @@ const UsersComparator = () => {
 
       <S.Section divider={["top"]}>
         <S.Wrapper>
-          {playersToCompare?.map((user, i) => {
-            if (i + 1 !== playersToCompare.length) {
-              return (
-                <>
-                  <ListItem
-                    key={i}
-                    text={user.name}
-                    actions={[
-                      <IconButton color="info">
-                        <FontAwesomeIcon icon={faDownload} />
-                      </IconButton>,
-                      <IconButton
-                        color="danger"
-                        onClick={() => {
-                          setPlayersToCompare(
-                            playersToCompare.filter((player) => player !== user)
-                          );
-                        }}
-                      >
-                        <FontAwesomeIcon icon={faTrashCan} />
-                      </IconButton>,
-                    ]}
-                  />
-                  <FontAwesomeIcon icon={faAdd} />
-                </>
-              );
-            }
-            return (
-              <ListItem
-                key={i}
-                text={user.name}
-                actions={[
-                  <IconButton color="info">
-                    <FontAwesomeIcon icon={faDownload} />
-                  </IconButton>,
-                  <IconButton
-                    color="danger"
-                    onClick={() => {
-                      setPlayersToCompare(
-                        playersToCompare.filter((player) => player !== user)
-                      );
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faTrashCan} />
-                  </IconButton>,
-                ]}
-              />
-            );
-          })}
+          {renderPlayersNameInput(0)}
+          <FontAwesomeIcon icon={faPlus} />
+          {renderPlayersNameInput(1)}
         </S.Wrapper>
       </S.Section>
 
       <S.Section divider={["top"]}>
         <S.Wrapper>
-          {playersToCompare?.map((user, i) => {
-            if (i + 1 !== playersToCompare.length) {
-              return (
-                <>
-                  <PlayerCard key={user.id} player={user} />
-                  <FontAwesomeIcon icon={faX} />
-                </>
-              );
-            }
-
-            return <PlayerCard key={user.id} player={user} />;
-          })}
+          {renderPlayersCard(0)}
+          <FontAwesomeIcon icon={faX} />
+          {renderPlayersCard(1)}
         </S.Wrapper>
+      </S.Section>
+      <S.Section divider={["top"]}>
+        <S.Highlight>🎆Vencedor🎆</S.Highlight>
+        <PlayerCard key={winner?.id} player={winner} />
       </S.Section>
     </S.Container>
   );
