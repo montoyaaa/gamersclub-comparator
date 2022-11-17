@@ -1,4 +1,5 @@
 import { User } from "../../utils/types/user.type";
+import { IconButton } from "../IconButton/styles";
 import * as S from "./styles";
 
 const PlayerCard = ({ player }: { player?: User }) => {
@@ -39,7 +40,7 @@ const PlayerCard = ({ player }: { player?: User }) => {
                       divider={["top", "left", "right", "bottom"]}
                       center
                     >
-                      {/* <S.Row
+                      <S.Row
                         style={{
                           alignSelf: "flex-end",
                           position: "absolute",
@@ -49,16 +50,21 @@ const PlayerCard = ({ player }: { player?: User }) => {
                         <IconButton>
                           <ChangeIcon />
                         </IconButton>
-                      </S.Row> */}
-                      <S.Medal>
-                        <img
-                          width={50}
-                          title={player?.medal.title}
-                          src={player?.medal.url}
-                          alt={player?.medal.title}
-                        />
-                      </S.Medal>
+                      </S.Row>
+
+                      <S.Row>
+                        <S.Medal>
+                          <img
+                            width={50}
+                            title={player?.medal.title}
+                            src={player?.medal.url}
+                            alt={player?.medal.title}
+                          />
+                        </S.Medal>
+                      </S.Row>
+
                       <S.Row>{player?.medal.title}</S.Row>
+
                       <S.Row
                         style={{
                           flexWrap: "nowrap",
@@ -67,10 +73,20 @@ const PlayerCard = ({ player }: { player?: User }) => {
                         <S.MedalRarity medalType={player?.medal.type}>
                           {player?.medal.type}
                         </S.MedalRarity>
+                      </S.Row>
+
+                      <S.Row>
                         {player?.medal.common && (
                           <S.Column>
-                            Apenas {player?.medal.common}% conquistaram essa
-                            medalha
+                            <S.Label
+                              style={{
+                                fontSize: 12,
+                                textAlign: "center",
+                              }}
+                            >
+                              Apenas {player?.medal.common}% conquistaram essa
+                              medalha
+                            </S.Label>
                           </S.Column>
                         )}
                       </S.Row>
