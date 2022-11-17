@@ -10,7 +10,7 @@
       "medal": {
         "url": "https://gamersclub.com.br/images/medalhas/34.png",
         "title": "Fui Campeão da Balada GC!",
-        "type": "legendary",
+        "type": "LENDÁRIA",
         "common": 0.04
       },
       "stats": {
@@ -28,26 +28,26 @@
     {
       "id": 1,
       "name": "Fallen",
-      "skill_level": 20,
+      "skill_level": 99,
       "background": "https://static.gamersclub.com.br/players/cover/662888/662888.jpg",
-      "avatar": "https://static.gamersclub.com.br/players/avatar/91264/91264_full.gif",
-      "frame": "https://assets.gamersclub.com.br/marketplace/avatar-frame-double-hang-loose",
+      "avatar": "https://avatars.steamstatic.com/ac6fd3610257492db106bc30892bf213aa4a0689_full.jpg",
+      "frame": "",
       "medal": {
-        "url": "https://gamersclub.com.br/images/medalhas/34.png",
-        "title": "Fui Campeão da Balada GC!",
-        "type": "legendary",
-        "common": 0.04
+        "url": "https://gamersclub.com.br/images/medalhas/11.png",
+        "title": "Membro Premium",
+        "type": "HONORÁRIA",
+        "common": null
       },
       "stats": {
-        "won": 20,
-        "lost": 9,
+        "won": 7,
+        "lost": 5,
         "last_match": {
           "date": "2022-08-17",
           "result": "13x16"
         },
-        "kdr": 1.1,
-        "kill": 637,
-        "death": 580
+        "kdr": 1.65,
+        "kill": 328,
+        "death": 199
       }
     },
     {
