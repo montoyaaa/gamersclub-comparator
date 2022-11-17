@@ -1,5 +1,4 @@
 import { User } from "../../utils/types/user.type";
-import { IconButton } from "../IconButton/styles";
 import * as S from "./styles";
 
 const PlayerCard = ({ player }: { player?: User }) => {
@@ -40,7 +39,7 @@ const PlayerCard = ({ player }: { player?: User }) => {
                       divider={["top", "left", "right", "bottom"]}
                       center
                     >
-                      <S.Row
+                      {/* <S.Row
                         style={{
                           alignSelf: "flex-end",
                           position: "absolute",
@@ -50,9 +49,10 @@ const PlayerCard = ({ player }: { player?: User }) => {
                         <IconButton>
                           <ChangeIcon />
                         </IconButton>
-                      </S.Row>
+                      </S.Row> */}
                       <S.Medal>
                         <img
+                          width={50}
                           title={player?.medal.title}
                           src={player?.medal.url}
                           alt={player?.medal.title}
@@ -64,8 +64,15 @@ const PlayerCard = ({ player }: { player?: User }) => {
                           flexWrap: "nowrap",
                         }}
                       >
-                        <S.MedalRarity>{player?.medal.type}</S.MedalRarity>
-                        Apenas {player?.medal.common}% conquistaram essa medalha
+                        <S.MedalRarity medalType={player?.medal.type}>
+                          {player?.medal.type}
+                        </S.MedalRarity>
+                        {player?.medal.common && (
+                          <S.Column>
+                            Apenas {player?.medal.common}% conquistaram essa
+                            medalha
+                          </S.Column>
+                        )}
                       </S.Row>
                     </S.Section>
                   </S.Column>

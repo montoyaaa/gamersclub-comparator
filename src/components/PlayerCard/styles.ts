@@ -152,11 +152,21 @@ export const Medal = styled.div`
     rgba(121, 9, 9, 1) 200%
   );
 `;
-export const MedalRarity = styled.span`
+export const MedalRarity = styled.span<{ medalType: String }>`
   margin: 0 8px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: ${({ theme }) => theme.palette.danger.main};
+  color: ${({ theme, ...props }) => {
+    switch (props.medalType) {
+      case "HONORÁRIA":
+        return theme.palette.success.main;
+      case "LENDÁRIA":
+        return theme.palette.danger.main;
+
+      default:
+        return theme.palette.danger.main;
+    }
+  }};
 `;
 export const AvatarFrame = styled.div<AvatarFrameProps>`
   background-image: ${(props) => `url(${props.frame ?? ""})`};
